@@ -1,3 +1,5 @@
 vendor
 screenshot.png
 .DS_Store
+results/*.png
+results/*.jpg
