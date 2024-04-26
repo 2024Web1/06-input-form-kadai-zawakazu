@@ -1,0 +1,11 @@
+services:
+  web:
+    image: densukest/xampp-devenv:alpine
+    #build: build/
+    # ローカルでビルドしたい場合は、imageをコメントアウトしてbuildを有効化してください
+    # github上にコミットするときは、必ずbuildキーは無効化してください(mainにmergeする際にチェックしています)
+    #build: env
+    volumes:
+      - ./public:/var/www/html:cached
+    # ports:
+    #   - 127.0.0.1:8000:80
