@@ -42,13 +42,13 @@ class SampleTest(unittest.TestCase):
         for item in ["リンゴ", "オレンジ", "メロン"]:
             self.driver.get('http://web/pulldown.html')
             time.sleep(1)
-            self.driver.save_screenshot(f'results/02-02-01-pulldown-before-enter-{item}.png')
+            self.driver.save_screenshot(f'results/02-02-01-pulldown-before-{item}-enter.png')
             self.driver.find_element(By.NAME, 'fruit').send_keys(item)
-            self.driver.save_screenshot(f'results/02-02-02-pulldown-after-enter-{item}.png')
+            self.driver.save_screenshot(f'results/02-02-02-pulldown-after-{item}-enter.png')
             # フォームを送信
             self.driver.find_element(By.NAME, 'submit').click()
             time.sleep(1)
-            self.driver.save_screenshot(f'results/02-02-03-pulldown-result-{item}.png')
+            self.driver.save_screenshot(f'results/02-02-03-pulldown-{item}-result.png')
             # pタグの取得
             elements = self.driver.find_elements(By.TAG_NAME, 'p')
             self.assertTrue(f'あなたの好きなフルーツは、{item}ですね。' in elements[0].text)
