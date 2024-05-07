@@ -1,0 +1,50 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: TestPassword.py
+      id: testpassword-py
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestPassword.py
+        setup-command: ''
+        command: make test_in_docker FILE=tests/TestPassword.py
+        timeout: 3
+        max-score: 1
+    - name: TestPulldown.py
+      id: testpulldown-py
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestPulldown.py
+        setup-command: ''
+        command: make test_in_docker FILE=tests/TestPulldown.py
+        timeout: 3
+        max-score: 1
+    - name: TestTextarea.py
+      id: testtextarea-py
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestTextarea.py
+        setup-command: ''
+        command: make test_in_docker FILE=tests/TestTextarea.py
+        timeout: 2
+        max-score: 1
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        TESTPASSWORD-PY_RESULTS: "${{steps.testpassword-py.outputs.result}}"
+        TESTPULLDOWN-PY_RESULTS: "${{steps.testpulldown-py.outputs.result}}"
+        TESTTEXTAREA-PY_RESULTS: "${{steps.testtextarea-py.outputs.result}}"
+      with:
+        runners: testpassword-py,testpulldown-py,testtextarea-py
