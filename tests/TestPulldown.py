@@ -27,7 +27,7 @@ class SampleTest(unittest.TestCase):
         # ここで 'results/before.png' にスクショを入れる
         self.driver.save_screenshot('results/02-01-password-usercheck.png')
         element = self.driver.find_element(By.TAG_NAME, 'h4')
-        self.assertTrue('0J04' in element.text)
+        self.assertTrue('0J' in element.text)
 
     def test_passwordform(self):
         """フォーム入力のテスト

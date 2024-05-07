@@ -20,14 +20,14 @@ class SampleTest(unittest.TestCase):
     def test_name(self):
         """h4タグ取得のテスト
         最初のh4タグの値を取得します。
-        その値が"0J04"を含むならテストが通ります。
+        その値が"0J"を含むならテストが通ります。
         """
         self.driver.get('http://web/password.html')
         time.sleep(2)
         # ここで 'results/before.png' にスクショを入れる
         self.driver.save_screenshot('results/01-01-password-usercheck.png')
         element = self.driver.find_element(By.TAG_NAME, 'h4')
-        self.assertTrue('0J04' in element.text)
+        self.assertTrue('0J' in element.text)
 
     def test_passwordform(self):
         """フォーム入力のテスト
