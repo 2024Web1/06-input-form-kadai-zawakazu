@@ -20,7 +20,7 @@ POSTメソッドでパスワードを渡してみる
 
 ## `password.php`
 
-`password.html` からのデータを受け取り、以下の出力を行う
+`password.html` からのデータを受け取り、以下の出力を行う。
 
 `password.php` では、以下の部分に手を入れる。
 
