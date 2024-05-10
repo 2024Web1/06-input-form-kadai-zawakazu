@@ -22,7 +22,7 @@ class SampleTest(unittest.TestCase):
         最初のh4タグの値を取得します。
         その値が"0J04"を含むならテストが通ります。
         """
-        self.driver.get('http://web/password.html')
+        self.driver.get('http://web/pulldown.html')
         time.sleep(2)
         # ここで 'results/before.png' にスクショを入れる
         self.driver.save_screenshot('results/02-01-password-usercheck.png')
