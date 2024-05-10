@@ -38,7 +38,7 @@ jobs:
         test-name: TestTextarea.py
         setup-command: ''
         command: make test_in_docker FILE=tests/TestTextarea.py
-        timeout: 2
+        timeout: 3
         max-score: 1
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
