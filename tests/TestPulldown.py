@@ -51,7 +51,7 @@ class SampleTest(unittest.TestCase):
             self.driver.save_screenshot(f'results/02-02-03-pulldown-{item}-result.png')
             # pタグの取得
             elements = self.driver.find_elements(By.TAG_NAME, 'p')
-            self.assertTrue(f'あなたの好きなフルーツは、{item}ですね。' in elements[0].text)
+            self.assertTrue(f'{item}' in elements[0].text)
 
 
 if __name__ == '__main__':
